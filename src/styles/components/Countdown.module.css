@@ -1,0 +1,43 @@
+.countdownContainer {}
+
+.countdownContainer .countdown {
+    width: 100%;
+    display: flex;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 6.25rem;
+    color: var(--title);
+    margin-bottom: 2rem;
+}
+
+.countdownContainer .countdown .numbers {
+    flex-grow: 1;
+    width: 5.5rem;
+    height: 9rem;
+    background-color: var(--white);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 2px;
+
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
+}
+
+.countdownContainer .countdown .doispontos {}
+
+.countdownContainer button {
+    width: 100%;
+    height: 5rem;
+    background-color: var(--blue);
+    color: var(--white);
+    font-weight: 600;
+    
+    font-size: 1.25rem;
+    border-radius: 5px;
+
+    transition: background-color 0.2s linear;
+}
+
+.countdownContainer button:hover {
+    background-color: var(--blue-dark);
+}
