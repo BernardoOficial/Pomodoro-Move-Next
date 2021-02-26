@@ -1,6 +1,14 @@
+import { useContext } from 'react';
 import styles from '../styles/components/Profile.module.css'
 
+import { ChallengesContext } from '../contexts/ChallengesContext'
+
 const Profile = () => {
+
+    const { level } = useContext(ChallengesContext);
+
+    console.log(level);
+    
 
     return (
         <div className={styles.profileContainer}>

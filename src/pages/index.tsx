@@ -30,7 +30,6 @@ const Home = () => {
           </section>
 
         </div>
-        {/* <img src="/vercel.svg" alt="Vercel Logo" /> */}
       </div>
   )
 }

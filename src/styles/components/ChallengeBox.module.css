@@ -1,33 +1,106 @@
 .challegeBoxContainer {
-    padding: 3.75rem;
+    padding: 3rem;
     background-color: var(--white);
     border-radius: 5px;
     width: 100%;
-    height: 31.25rem;
+    /* height: 31.25rem; */
+    height: 100%;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
+}
+
+.contentChallengeAtivo {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contentChallengeAtivo > p {
+    font-size: 1.25rem;
+    line-height: 1.87rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--blue);
+}
+
+.contentChallengeAtivo > div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.25rem;
+    line-height: 1.87rem;
+    text-align: center;
+    color: var(--text);
+}
+
+.contentChallengeAtivo > div:nth-child(2) > img {
+    width: 9rem;
+    height: 7rem;
+    margin: 0 auto 1.5rem;
+}
+
+.contentChallengeAtivo > div:nth-child(2) > h2 {
+    font-size: 1.9rem;
+    line-height: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--title);
+}
+
+.contentChallengeAtivo > div:nth-child(2) > p {
+    font-size: 1rem;
+    line-height: 1.6rem;
+}
+
+.contentChallengeAtivo > .buttons {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contentChallengeAtivo > .buttons > button {
+    width: 154px;
+    height: 45px;
+    border-radius: 5px;
+
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--white);
+
+    transition: filter 0.2s linear;
+}
+
+.contentChallengeAtivo > .buttons > button:hover {
+    filter: brightness(0.9);
+}
+
+.contentChallengeAtivo > .buttons > button:first-child { background-color: var(--red); }
+.contentChallengeAtivo > .buttons > button:last-child { background-color: var(--green); }
+
+.contentChallengeNaoAtivo {
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.challegeBoxContainer > h1 {
+.contentChallengeNaoAtivo > h1 {
     font-size: 1.5rem;
-    line-height: 2.1rem;
-    color: var(--text);
+    line-height: 2.125rem;
     text-align: center;
 }
 
-.challegeBoxContainer > div {
+.contentChallengeNaoAtivo > div {
     margin-top: 2.5rem;
-
-    
     font-size: 1rem;
     line-height: 1.6rem;
     color: var(--text);
     text-align: center;
 }
 
-.challegeBoxContainer > div > img {
+.contentChallengeNaoAtivo > div > img {
     height: 80px;
     margin-bottom: 16px;
 }
