@@ -4,7 +4,7 @@ import styles from '../styles/components/ChallengeBox.module.css';
 
 const ChallengeBox = () => {
 
-    const { challengerAtivo, resetChallenge } = useContext(ChallengesContext);
+    const { challengerAtivo, resetChallenge, completedChallenge } = useContext(ChallengesContext);
 
     console.log(challengerAtivo);
 
@@ -30,6 +30,7 @@ const ChallengeBox = () => {
                         </button>
                         <button
                         type="button"
+                        onClick={completedChallenge}
                         >
                             Completei
                         </button>

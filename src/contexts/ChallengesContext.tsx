@@ -16,6 +16,7 @@ interface ChallengesProviderDados {
   levelUp: () => void;
   startNewChallenge: () => void;
   resetChallenge: () => void;
+  completedChallenge: () => void;
 }
 
 interface ChallengesProviderProps {
@@ -31,7 +32,7 @@ const ChallengesProvider = ({ children }: ChallengesProviderProps) => {
     const [experienciaAtual, setExperienciaAtual] = useState(0);
     const [challengesConcluidos, setChallengesConcluidos] = useState(0);
 
-    const experienciaParaProximoNivel = Math.pow((level + 1) * 5, 2);
+    const experienciaParaProximoNivel = Math.pow((level + 1) * 4, 2);
 
     const levelUp = () => {
         setLevel(level + 1);
@@ -47,6 +48,26 @@ const ChallengesProvider = ({ children }: ChallengesProviderProps) => {
     const resetChallenge = () => {
         setChallengerAtivo(null);
     }
+
+    const completedChallenge = () => {
+
+      if(!challengerAtivo) {
+        return;
+      }
+
+      const { amount } = challengerAtivo;
+
+      let experienciaFinal = experienciaAtual + amount;
+
+      if (experienciaFinal >= experienciaParaProximoNivel) {
+        levelUp();
+        experienciaFinal = experienciaFinal - experienciaParaProximoNivel;
+      }
+
+      setChallengesConcluidos(challengesConcluidos + 1);
+      setExperienciaAtual(experienciaFinal);
+      setChallengerAtivo(null);
+    }
     
 
   return (
@@ -60,6 +81,7 @@ const ChallengesProvider = ({ children }: ChallengesProviderProps) => {
         levelUp,
         startNewChallenge,
         resetChallenge,
+        completedChallenge,
       }}
     >
       {children}
