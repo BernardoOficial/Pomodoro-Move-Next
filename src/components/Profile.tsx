@@ -7,9 +7,6 @@ const Profile = () => {
 
     const { level } = useContext(ChallengesContext);
 
-    console.log(level);
-    
-
     return (
         <div className={styles.profileContainer}>
             <img src="https://github.com/bernardooficial.png" alt="Bernardo Pereira"/>

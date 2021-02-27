@@ -1,26 +1,38 @@
-import { useState } from 'react';
-import styles from '../styles/components/ChallengeBox.module.css'
+import { useContext, useEffect, useState } from 'react';
+import { ChallengesContext } from '../contexts/ChallengesContext';
+import styles from '../styles/components/ChallengeBox.module.css';
 
 const ChallengeBox = () => {
 
-    const [temDesafio, setTemDesafio] = useState(true);
+    const { challengerAtivo, resetChallenge } = useContext(ChallengesContext);
+
+    console.log(challengerAtivo);
 
     return (
         <section className={styles.challegeBoxContainer}>
 
-            {temDesafio ? (
+            {challengerAtivo ? (
                 <div className={styles.contentChallengeAtivo}>
-                    <p>Ganhe 400 xp</p>
+                    <p>Ganhe {challengerAtivo.amount} xp</p>
 
                     <div>
-                        <img src="/icons/body.svg" alt="Exercite-se"/>
+                        <img src={`/icons/${challengerAtivo.type}.svg`} alt="Exercite-se"/>
                         <h2>Exercite-se</h2>
-                        <p>É agora Diegão, bora lá meu parça. Caminhe por 3 minutos e estique suas pernas pra você ficar saudável.</p>
+                        <p>{challengerAtivo.description}</p>
                     </div>
 
                     <div className={styles.buttons}>    
-                        <button type="button" >Falhei</button>
-                        <button type="button" >Completei</button>
+                        <button 
+                        type="button"
+                        onClick={resetChallenge}
+                        >
+                            Falhei
+                        </button>
+                        <button
+                        type="button"
+                        >
+                            Completei
+                        </button>
                     </div>
 
                 </div>
