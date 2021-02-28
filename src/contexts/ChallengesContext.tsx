@@ -1,5 +1,7 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 import challenges from '../../challenges.json';
+import Cookies from 'js-cookie'
+import LevelUpModal from "../components/LevelUpModal";
 
 interface Challenge {
     type: 'body' | 'eye';
@@ -17,20 +19,28 @@ interface ChallengesProviderDados {
   startNewChallenge: () => void;
   resetChallenge: () => void;
   completedChallenge: () => void;
+  closeModal: () => void;
 }
 
 interface ChallengesProviderProps {
     children: ReactNode;
+    level: number;
+    experienceAtual: number;
+    challengesConcluidos: number;
 }
 
 const ChallengesContext = createContext({} as ChallengesProviderDados);
 
-const ChallengesProvider = ({ children }: ChallengesProviderProps) => {
+const ChallengesProvider = ({ 
+  children,
+  ...rest
+}: ChallengesProviderProps) => {
 
     const [challengerAtivo, setChallengerAtivo] = useState(null);
-    const [level, setLevel] = useState(1);
-    const [experienciaAtual, setExperienciaAtual] = useState(0);
-    const [challengesConcluidos, setChallengesConcluidos] = useState(0);
+    const [level, setLevel] = useState(rest.level || 1);
+    const [experienciaAtual, setExperienciaAtual] = useState(rest.experienceAtual || 0);
+    const [challengesConcluidos, setChallengesConcluidos] = useState(rest.challengesConcluidos || 0);
+    const [modalEstaAtivo, setModalEstaAtivo] = useState(false);
 
     const experienciaParaProximoNivel = Math.pow((level + 1) * 4, 2);
 
@@ -40,9 +50,22 @@ const ChallengesProvider = ({ children }: ChallengesProviderProps) => {
 
     }, [])
 
+    useEffect(() => {
+
+      Cookies.set('level', String(level));
+      Cookies.set('experienciaAtual', String(experienciaAtual));
+      Cookies.set('challengesConcluidos', String(challengesConcluidos));
+
+    }, [level, experienciaAtual, challengesConcluidos])
+
     const levelUp = () => {
         setLevel(level + 1);
+        setModalEstaAtivo(true);
     }
+
+    const closeModal = () => {
+      setModalEstaAtivo(false);
+    };
 
     const startNewChallenge = () => {
         const numberRandom = Math.floor(Math.random() * challenges.length);
@@ -96,9 +119,11 @@ const ChallengesProvider = ({ children }: ChallengesProviderProps) => {
         startNewChallenge,
         resetChallenge,
         completedChallenge,
+        closeModal,
       }}
     >
       {children}
+      {modalEstaAtivo && <LevelUpModal />}
     </ChallengesContext.Provider>
   );
 };

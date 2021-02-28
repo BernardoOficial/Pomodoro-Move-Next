@@ -1,0 +1,61 @@
+.modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.4);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 25rem;
+    height: 25rem;
+    border-radius: 5px;
+    padding: 2rem 3rem;
+    position: relative;
+    background: #ffffff;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.container header {
+    font-size: 8.75rem;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 1.25rem;
+
+    background: url(/icons/levelup.svg) no-repeat center;
+    background-size: contain;
+}
+
+.container header span {
+    font-size: 1.75rem;
+    color: var(--blue);
+    margin-bottom: 1.25rem;
+    display: block;
+}
+
+.container h1 {
+    font-size: 1.9rem;
+    color: var(--title);
+    margin-bottom: 1.25rem;
+}
+
+.container p {
+    font-size: 1.25rem;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+}
+
+.container button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: transparent;
+    z-index: 2;
+    font-size: 0;
+}
