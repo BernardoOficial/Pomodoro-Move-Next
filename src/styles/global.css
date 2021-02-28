@@ -16,6 +16,8 @@
     --blue: #5965e0;
     --blue-dark: #4953b8;
     --blue-twitter: #2aa9e0;
+    --cronometro: #2e384d;
+    --change-color: #383737;
 }
 
 @media (max-width: 1080px) {
@@ -33,8 +35,6 @@
 body {
     background-color: var(--background);
     color: var(--text);
-    /* font-family: 'Inter', sans-serif; */
-    /* font-family: 'Rajdhani', sans-serif; */
 }
 
 body, input, textarea, button {

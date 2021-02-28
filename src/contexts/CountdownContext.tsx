@@ -18,10 +18,12 @@ interface CountdownProviderProps {
 const CountdownContext = createContext({} as CountdownProviderDados);
 
 const CountdowsProvider = ({ children }: CountdownProviderProps) => {
-
+    
     const { startNewChallenge } = useContext(ChallengesContext);
+    
+    const tempoInicialDoCronometro = 0.1 * 60;  
 
-    const [time, setTime] = useState(0.1 * 60);
+    const [time, setTime] = useState(tempoInicialDoCronometro);
     const [regressivaEstaAtivo, setRegressivaEstaAtivo] = useState(false);
     const [regressivaFinalizou, setRegressivaFinalizou] = useState(false);
 
@@ -54,7 +56,7 @@ const CountdowsProvider = ({ children }: CountdownProviderProps) => {
       clearInterval(regressiva);
       setRegressivaEstaAtivo(false);
       setRegressivaFinalizou(false);
-      setTime(0.1 * 60);
+      setTime(tempoInicialDoCronometro);
     };
 
     return (

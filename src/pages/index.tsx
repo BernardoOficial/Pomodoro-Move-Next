@@ -12,6 +12,7 @@ import { ChallengesProvider } from '../contexts/ChallengesContext'
 import { CountdowsProvider } from '../contexts/CountdownContext'
 
 import styles from '../styles/pages/Home.module.css'
+import ChangeColor from '../components/ChangeColor'
 
 interface HomeProps {
   level: number;
@@ -34,6 +35,8 @@ const Home = (props: HomeProps) => {
 
           <div className={styles.container}>
             <ExperienceBar />
+
+            <ChangeColor />
 
             <CountdowsProvider>
               <section>

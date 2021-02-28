@@ -1,0 +1,37 @@
+.changeColor {
+    position: absolute;
+    top: 40px;
+    right: 80px;
+}
+
+.container {
+    display: block;
+    position: relative;
+    width: 50px;
+    height: 18px;
+    border-radius: 10px;
+    background-color: var(--change-color);
+}
+
+.container > input {
+    appearance: none;
+    background: transparent;
+}
+
+.container > input:checked ~ span {
+    transform: translateY(-50%) translateX(100%);
+}
+
+.container > span {
+    position: absolute;
+    top: 50%;
+    transition: 0.3s ease-out;
+    transform: translateY(-50%);
+
+
+    display: block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: var(--green);
+}
