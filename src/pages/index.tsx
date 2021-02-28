@@ -4,6 +4,7 @@ import CompletedChallenges from '../components/CompletedChallenges'
 import Countdown from '../components/Countdown'
 import ExperienceBar from '../components/ExperienceBar'
 import Profile from '../components/Profile'
+import { CountdowsProvider } from '../contexts/CountdownContext'
 
 import styles from '../styles/pages/Home.module.css'
 
@@ -16,18 +17,20 @@ const Home = () => {
         <div className={styles.container}>
           <ExperienceBar />
 
-          <section>
+          <CountdowsProvider>
+            <section>
 
-            <article>
-                <Profile />
-                <CompletedChallenges />
-                <Countdown />
-            </article>
-            <article>
-                <ChallengeBox />
-            </article>
+              <article>
+                  <Profile />
+                  <CompletedChallenges />
+                  <Countdown />
+              </article>
+              <article>
+                  <ChallengeBox />
+              </article>
 
-          </section>
+            </section>
+          </CountdowsProvider>
 
         </div>
       </div>

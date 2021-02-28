@@ -1,17 +1,14 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 import { ChallengesContext } from "./ChallengesContext";
 
-interface algarismoNoArray {
-    
-}
-
 interface CountdownProviderDados {
   minutes: number;
   seconds: number;
   regressivaEstaAtivo: boolean;
   regressivaFinalizou: boolean;
-  setRegressivaEstaAtivo: () => void;
-  separarAlgarismosNoArray: () => algarismoNoArray;
+  regressiva: number;
+  iniciarCountdown: () => void;
+  resetarCountdown: () => void;
 }
 
 interface CountdownProviderProps {
@@ -32,9 +29,6 @@ const CountdowsProvider = ({ children }: CountdownProviderProps) => {
     const minutes = roundTime(time / 60);
     const seconds = roundTime(time % 60);
 
-    const separarAlgarismosNoArray = (number) =>
-        String(number).padStart(2, "0").split("");
-
     let regressiva = null;
 
     useEffect(() => {
@@ -52,14 +46,26 @@ const CountdowsProvider = ({ children }: CountdownProviderProps) => {
       }
     }, [regressivaEstaAtivo, time]);
 
+    const iniciarCountdown = () => {
+      setRegressivaEstaAtivo(true);
+    };
+
+    const resetarCountdown = () => {
+      clearInterval(regressiva);
+      setRegressivaEstaAtivo(false);
+      setRegressivaFinalizou(false);
+      setTime(0.1 * 60);
+    };
+
     return (
         <CountdownContext.Provider value={{
             minutes,
             seconds,
             regressivaEstaAtivo,
             regressivaFinalizou,
-            setRegressivaEstaAtivo,
-            separarAlgarismosNoArray
+            regressiva,
+            iniciarCountdown,
+            resetarCountdown
         }}>
             {children}
         </CountdownContext.Provider>
