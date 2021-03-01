@@ -37,9 +37,9 @@ const ChallengesProvider = ({
 }: ChallengesProviderProps) => {
 
     const [challengerAtivo, setChallengerAtivo] = useState(null);
-    const [level, setLevel] = useState(rest.level || 1);
-    const [experienciaAtual, setExperienciaAtual] = useState(rest.experienceAtual || 0);
-    const [challengesConcluidos, setChallengesConcluidos] = useState(rest.challengesConcluidos || 0);
+    const [level, setLevel] = useState(rest.level ?? 1);
+    const [experienciaAtual, setExperienciaAtual] = useState(rest.experienceAtual ?? 0);
+    const [challengesConcluidos, setChallengesConcluidos] = useState(rest.challengesConcluidos ?? 0);
     const [modalEstaAtivo, setModalEstaAtivo] = useState(false);
 
     const experienciaParaProximoNivel = Math.pow((level + 1) * 4, 2);

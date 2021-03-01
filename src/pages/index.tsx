@@ -6,7 +6,6 @@ import CompletedChallenges from '../components/CompletedChallenges'
 import Countdown from '../components/Countdown'
 import ExperienceBar from '../components/ExperienceBar'
 import Profile from '../components/Profile'
-import LevelUpModal from '../components/LevelUpModal'
 
 import { ChallengesProvider } from '../contexts/ChallengesContext'
 import { CountdowsProvider } from '../contexts/CountdownContext'
@@ -33,7 +32,7 @@ const Home = (props: HomeProps) => {
             <title>Pomodoro-Move</title>
           </Head>
 
-          <div className={styles.container}>
+          <div className={`${styles.container}`}>
             <ExperienceBar />
 
             <ChangeColor />

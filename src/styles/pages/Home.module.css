@@ -1,12 +1,15 @@
 .container {
     min-height: 100vh;
+    width: 100%;
     max-width: 992px;
-    margin: 0 auto;
+    margin: 30px auto 0;
     padding: 2.5rem 2rem;
     display: flex;
     flex-direction: column;
+}
 
-    /* filter: blur(2px); */
+.filterOn {
+    filter: blur(2px);
 }
 
 .container > section {
@@ -16,4 +19,16 @@
     gap: 6.25rem;
     align-content: center;
     margin-top: 50px;
+}
+
+@media screen and (max-width: 850px) {
+    .container > section {
+        grid-template-columns: 1fr;
+        gap: 0rem;
+        row-gap: 6.25rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    
 }

@@ -11,6 +11,7 @@ Projeto da #NLW4 para ajudar no controle de tempo na realização de tarefas e t
 ## Desafior realizados
 
 - Mudança de temas (White e Dark);
+- Responsividade.
 - Criar Readme.
 
 ## Como iniciar o projeto.

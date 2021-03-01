@@ -1,6 +1,6 @@
 .changeColor {
     position: absolute;
-    top: 40px;
+    top: 20px;
     right: 80px;
 }
 
@@ -34,4 +34,11 @@
     height: 25px;
     border-radius: 50%;
     background-color: var(--green);
+}
+
+@media screen and (max-width: 500px) {
+    .changeColor {
+        top: 30px;
+        right: 20px;
+    } 
 }
