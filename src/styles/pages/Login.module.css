@@ -1,0 +1,68 @@
+.fullbody {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--blue);
+    background-image: url(/icons/Simbolo.svg);
+    background-repeat: no-repeat;
+    background-position: -150px 0;
+}
+
+.container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.container > figure {
+    margin-bottom: 6rem;
+}
+
+.container > div > h1 {
+    font-size: 2.25rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+}
+
+.container > div > p {
+    display: flex;
+    align-items: center;
+    max-width: 20rem;
+    font-size: 1.25rem;
+    line-height: 2rem;
+    color: var(--text-highlight);
+    margin-bottom: 2.5rem;
+}
+
+.container > div > p > img {
+    margin-right: 1.5rem;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.button > input {
+    width: 340px;
+    height: 80px;
+    padding: 10px 30px;
+    color: var(--text-highlight);
+    background: linear-gradient(90deg, #4953B8, transparent);
+}
+
+.button > input::placeholder {
+    color: var(--text-highlight);
+}
+
+.button > button {
+    width: 80px;
+    height: 80px;
+    background: var(--blue-dark);
+}

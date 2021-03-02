@@ -1,74 +1,29 @@
-import Head from 'next/head'
-import { GetServerSideProps } from 'next'
+import styles from '../styles/pages/Login.module.css'
 
-import ChallengeBox from '../components/ChallengeBox'
-import CompletedChallenges from '../components/CompletedChallenges'
-import Countdown from '../components/Countdown'
-import ExperienceBar from '../components/ExperienceBar'
-import Profile from '../components/Profile'
+const Login = () => {
+    return (
+        <div className={styles.fullbody}>
+            <section className={styles.container}>
+                <figure>
+                    <img src="/logo-full.svg" alt="Pomodoro Move"/>
+                </figure>
 
-import { ChallengesProvider } from '../contexts/ChallengesContext'
-import { CountdowsProvider } from '../contexts/CountdownContext'
-
-import styles from '../styles/pages/Home.module.css'
-import ChangeColor from '../components/ChangeColor'
-
-interface HomeProps {
-  level: number;
-  experienceAtual: number;
-  challengesConcluidos: number;
-}
-
-const Home = (props: HomeProps) => {
-
-  return (
-      <ChallengesProvider
-        level={props.level}
-        experienceAtual={props.experienceAtual}
-        challengesConcluidos={props.challengesConcluidos}
-      >
-        <div>
-          <Head>
-            <title>Pomodoro-Move</title>
-          </Head>
-
-          <div className={`${styles.container}`}>
-            <ExperienceBar />
-
-            <ChangeColor />
-
-            <CountdowsProvider>
-              <section>
-
-                <article>
-                    <Profile />
-                    <CompletedChallenges />
-                    <Countdown />
-                </article>
-                <article>
-                    <ChallengeBox />
-                </article>
-
-              </section>
-            </CountdowsProvider>
-
-          </div>
+                <div>
+                    <h1>Bem-vindo</h1>
+                    <p>
+                        <img src="/icons/Github.svg" alt="Github"/>
+                        Faça login com seu Github para começar
+                    </p>
+                    <div className={styles.button}>
+                        <input type="text" placeholder="Digite seu username" />
+                        <button type="button">
+                            <img src="/icons/arrowright.svg" alt="Entrar com o github"/>
+                        </button>
+                    </div>
+                </div>
+            </section>
         </div>
-      </ChallengesProvider>
-  )
+    );
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  
-  const { level, experienciaAtual, challengesConcluidos } = context.req.cookies;
-  
-  return {
-    props: {
-      level: Number(level),
-      experienceAtual: Number(experienciaAtual),
-      challengesConcluidos: Number(challengesConcluidos),
-    },
-  };
-}
-
-export default Home
+export default Login;
