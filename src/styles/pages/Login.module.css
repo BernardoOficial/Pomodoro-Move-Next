@@ -53,8 +53,11 @@
     width: 340px;
     height: 80px;
     padding: 10px 30px;
-    color: var(--text-highlight);
     background: linear-gradient(90deg, #4953B8, transparent);
+
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-highlight);
 }
 
 .button > input::placeholder {
@@ -62,6 +65,13 @@
 }
 
 .button > button {
+    width: 80px;
+    height: 80px;
+    background: var(--green);
+    transition: 0.3s linear;
+}
+
+.button > button:disabled {
     width: 80px;
     height: 80px;
     background: var(--blue-dark);
