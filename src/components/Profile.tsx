@@ -5,11 +5,11 @@ import { ChallengesContext } from '../contexts/ChallengesContext'
 
 const Profile = () => {
 
-    const { level } = useContext(ChallengesContext);
+    const { level, userGithub } = useContext(ChallengesContext);
 
     return (
         <div className={styles.profileContainer}>
-            <img src="https://github.com/bernardooficial.png" alt="Bernardo Pereira"/>
+            <img src={`${userGithub.avatar_url}`} alt="Bernardo Pereira"/>
             <div>
                 <strong>Bernardo Pereira</strong>
                 <p>

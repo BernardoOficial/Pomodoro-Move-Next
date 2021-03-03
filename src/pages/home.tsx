@@ -6,12 +6,13 @@ import CompletedChallenges from '../components/CompletedChallenges'
 import Countdown from '../components/Countdown'
 import ExperienceBar from '../components/ExperienceBar'
 import Profile from '../components/Profile'
+import ChangeColor from '../components/ChangeColor'
 
 import { ChallengesProvider } from '../contexts/ChallengesContext'
 import { CountdowsProvider } from '../contexts/CountdownContext'
 
 import styles from '../styles/pages/Home.module.css'
-import ChangeColor from '../components/ChangeColor'
+import MenuAside from '../components/MenuAside'
 
 interface HomeProps {
   level: number;
@@ -20,7 +21,7 @@ interface HomeProps {
 }
 
 const Home = (props: HomeProps) => {
-
+  
   return (
       <ChallengesProvider
         level={props.level}
@@ -31,6 +32,8 @@ const Home = (props: HomeProps) => {
           <Head>
             <title>Pomodoro-Move</title>
           </Head>
+
+          <MenuAside />
 
           <div className={`${styles.container}`}>
             <ExperienceBar />

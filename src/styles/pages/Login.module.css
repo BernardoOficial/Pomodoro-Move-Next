@@ -72,7 +72,21 @@
 }
 
 .button > button:disabled {
-    width: 80px;
-    height: 80px;
     background: var(--blue-dark);
+}
+
+@media screen and (max-width: 900px) {
+    .container {
+        transform: translateX(-50%);
+    }
+    .button > input {
+        width: 240px;
+        height: 60px;
+        padding: 10px 30px;
+    }
+
+    .button > button {
+        width: 60px;
+        height: 60px;
+    }
 }

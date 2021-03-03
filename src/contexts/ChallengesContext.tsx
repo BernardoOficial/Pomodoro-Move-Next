@@ -2,6 +2,8 @@ import { createContext, ReactNode, useEffect, useState } from "react";
 import challenges from '../../challenges.json';
 import Cookies from 'js-cookie'
 import LevelUpModal from "../components/LevelUpModal";
+import { useRouter } from "next/router";
+import { dadosGithub } from "../fetch/dadosGithub";
 
 interface Challenge {
     type: 'body' | 'eye';
@@ -11,6 +13,7 @@ interface Challenge {
 
 interface ChallengesProviderDados {
   challengerAtivo: Challenge;
+  userGithub: object;
   level: number;
   experienciaAtual: number;
   challengesConcluidos: number;
@@ -35,14 +38,26 @@ const ChallengesProvider = ({
   children,
   ...rest
 }: ChallengesProviderProps) => {
+  
+    const { query } = useRouter();
 
     const [challengerAtivo, setChallengerAtivo] = useState(null);
+    const [userGithub, setUserGithub] = useState({});
     const [level, setLevel] = useState(rest.level ?? 1);
     const [experienciaAtual, setExperienciaAtual] = useState(rest.experienceAtual ?? 0);
     const [challengesConcluidos, setChallengesConcluidos] = useState(rest.challengesConcluidos ?? 0);
     const [modalEstaAtivo, setModalEstaAtivo] = useState(false);
 
     const experienciaParaProximoNivel = Math.pow((level + 1) * 4, 2);
+
+
+      useEffect(() => {
+        dadosGithub(query.user)
+          .then((responseUser) => {
+            setUserGithub(responseUser);
+          });
+          
+      }, []);
 
     useEffect(() => {
 
@@ -111,6 +126,7 @@ const ChallengesProvider = ({
     <ChallengesContext.Provider
       value={{
         challengerAtivo,
+        userGithub,
         level,
         experienciaAtual,
         challengesConcluidos,

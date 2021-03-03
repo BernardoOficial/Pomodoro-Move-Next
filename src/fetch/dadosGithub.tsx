@@ -1,19 +1,13 @@
-const dadosGithub = async (username: string) => {
+const dadosGithub = async (username) => {
 
-    try {
-        const response = await fetch(`https://api.github.com/users/${username}`);
+    const response = await fetch(`https://api.github.com/users/${username}`);
+    const user = await response.json();
 
-        if(!response.ok) {
-            throw new Error(`Insira um username válido.`)
-        }
-        
-        const user = await response.json();
-        return user;
-
-    } catch (erro) {
-        return erro;
+    if(user.message === "Not Found") {
+        throw new Error(`Insira um username válido.`);
     }
-    
+
+    return user;
 }
 
 export {

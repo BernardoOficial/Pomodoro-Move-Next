@@ -1,0 +1,55 @@
+.menuAsideContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 7rem;
+    padding: 10px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white);
+    z-index: 10;
+}
+
+.menuAsideContainer > figure {
+    position: fixed;
+    top: 32px;
+    left: auto;
+    right: auto;
+    width: 48px;
+    height: 42px;
+}
+
+.menuAsideContainer > ul {
+    width: 100%;
+}
+
+.menuAsideContainer > ul > li {
+    list-style: none;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.menuAsideContainer > ul > li > a {
+    display: block;
+    padding: 10px 0;
+    position: relative;
+}
+
+.menuAsideContainer > ul > li:first-child > a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--blue-dark);
+    border-radius: 0 5px 5px 0;
+}
+
+@media screen and (max-width: 1170px) {
+    .menuAsideContainer {
+        left: -100%;
+    }
+}
