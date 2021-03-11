@@ -11,9 +11,13 @@ interface Challenge {
     amount: number;
 }
 
+interface UserGithub {
+    avatar_url?: string;
+}
+
 interface ChallengesProviderDados {
   challengerAtivo: Challenge;
-  userGithub: object;
+  userGithub: UserGithub;
   level: number;
   experienciaAtual: number;
   challengesConcluidos: number;
@@ -50,14 +54,13 @@ const ChallengesProvider = ({
 
     const experienciaParaProximoNivel = Math.pow((level + 1) * 4, 2);
 
-
-      useEffect(() => {
-        dadosGithub(query.user)
-          .then((responseUser) => {
-            setUserGithub(responseUser);
-          });
-          
-      }, []);
+    useEffect(() => {
+      dadosGithub(query.user)
+        .then((responseUser) => {
+          setUserGithub(responseUser);
+        });
+        
+    }, []);
 
     useEffect(() => {
 
