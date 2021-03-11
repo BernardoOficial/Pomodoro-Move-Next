@@ -8,8 +8,8 @@ export default class MyDocument extends Document {
                 <Head>
                     <meta name="theme-color" content="#000000" />
                     <meta
-                    name="description"
-                    content="Pomodoro-Move"
+                        name="description"
+                        content="Pomodoro-Move"
                     />
                     <link rel="preconnect" href="https://fonts.gstatic.com" />
                     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rajdhani:wght@600&display=swap" rel="stylesheet" />
