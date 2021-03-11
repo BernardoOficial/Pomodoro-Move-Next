@@ -59,7 +59,7 @@ const Login = () => {
                   onChange={uptadeUsername}
                 />
                 <button
-                  type="button"
+                  type="submit"
                   disabled={username.length > 3 ? false : true}
                   onClick={searchUserGithub}
                 >

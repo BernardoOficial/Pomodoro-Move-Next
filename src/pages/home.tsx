@@ -13,6 +13,8 @@ import { CountdowsProvider } from '../contexts/CountdownContext'
 
 import styles from '../styles/pages/Home.module.css'
 import MenuAside from '../components/MenuAside'
+import Loading from '../components/Loading'
+import { useEffect, useState } from 'react'
 
 interface HomeProps {
   level: number;
@@ -21,14 +23,23 @@ interface HomeProps {
 }
 
 const Home = (props: HomeProps) => {
+
+  const [estaCarregandoJanela, setEstaCarregandoJanela] = useState(true);
   
+  useEffect(() => {
+    setTimeout(() => {
+      setEstaCarregandoJanela(false);
+    }, 2000);
+  }, [])
+
   return (
       <ChallengesProvider
         level={props.level}
         experienceAtual={props.experienceAtual}
         challengesConcluidos={props.challengesConcluidos}
       >
-        <div>
+        {estaCarregandoJanela ? <Loading /> : (
+          <div>
           <Head>
             <title>Pomodoro-Move</title>
           </Head>
@@ -57,6 +68,7 @@ const Home = (props: HomeProps) => {
 
           </div>
         </div>
+        ) }
       </ChallengesProvider>
   )
 }

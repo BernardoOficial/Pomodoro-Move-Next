@@ -1,0 +1,23 @@
+.overContainer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid var(--blue);
+    border-top: var(--white);
+
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
